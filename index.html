@@ -1,109 +1,453 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Ramón Oritz</title>
-    <meta name="description" content="Sitio web personal.">
-    <meta name="keywords" content="JOSÉ RAMÓN ORTIZ CASTAÑEDA, nsr_ramon, developer">
-    <meta name="author" content="Tu Nombre">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="img/fav.png">
     <meta charset="UTF-8">
-    <style type="text/css">
-        @font-face {
-            font-family: MainFont;
-            src: url("src/GT-America-Extended-Regular.ttf") format("truetype");
-            font-style: normal;
-            font-weight: normal;
-        }
-
-        html, body {
-            width: 100%;
-            height: 100%;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ramooon.com</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: MainFont, -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #000;
-            color: #FFF;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            font-family: 'Roboto', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ddd;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 2rem;
+            overflow: hidden;
+            background-color: #000;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('src/macos07HD.gif');
-            background-repeat: no-repeat;
-            background-size: contain; 
-            background-position: center center;
-            opacity: 0.9; 
-            z-index: -2;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            z-index: -1;
-        }
-
-        #container {
+        .hero-bg {
             position: absolute;
-            right: 17%;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 30px;
-            text-align: right;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('macos.gif') center/auto 100% no-repeat;
+            opacity: 0.7;
             z-index: 1;
         }
 
-        a {
-            text-decoration: none;
-            color: #FFF;
-            transition: all 250ms ease;
-            padding: 2px 4px;
+        .hero-content {
+            text-align: left;
+            color: white;
+            z-index: 2;
+            max-width: 600px;
         }
 
-        a:hover {
-            background: #FFF;
-            color: #000;
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.1;
         }
 
-        @media only screen and (max-width: 768px) {
-            #container {
-                font-size: 22px;
-                right: 5%;
-                left: 5%;
+        .hero-content h4 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.3;
+        }
+
+        /* Tech Carousel Section */
+        .tech-carousel-section {
+            background-color: #000;
+            padding: 2rem 0;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            white-space: nowrap;
+            animation: slide 15s linear infinite;
+        }
+
+        .carousel-item {
+            font-size: 32px;
+            font-weight: 500;
+            color: white;
+            margin-right: 80px;
+            flex-shrink: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+
+        .carousel-item.text {
+            margin-right: 40px;
+        }
+
+        .carousel-item.icon {
+            margin-right: 40px;
+        }
+
+        .carousel-item img {
+            width: 48px;
+            height: 48px;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: rgb(224, 224, 219);
+            padding: 4rem 0 0 0;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-end;
+            gap: 2rem;
+            padding: 0 2rem;
+            min-height: 100vh;
+        }
+
+        .about-content {
+            flex: 0 0 40%;
+            padding-right: 2rem;
+            padding-bottom: 4rem;
+        }
+
+        .about-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .about-content em {
+            font-style: italic;
+        }
+
+        .about-image {
+            flex: 0 0 60%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .spotify-embed {
+            margin-top: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #000;
+            padding: 4rem 0;
+            min-height: 50vh;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .contact-section h1 {
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .contact-section p {
+            color: #ccc;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero {
+                padding-right: 2rem;
+                justify-content: center;
                 text-align: center;
-                transform: translateY(-50%);
             }
 
-            body::before {
-                opacity: 0.2;
+            .hero-content {
+                text-align: center;
             }
-        }
 
-        @media only screen and (max-width: 480px) {
-            #container {
-                font-size: 18px;
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content h4 {
+                font-size: 1.2rem;
+            }
+
+            .carousel-item {
+                font-size: 24px;
+                margin-right: 50px;
+                display: flex;
+                align-items: center;
+            }
+
+            .carousel-item.text {
+                margin-right: 30px;
+            }
+
+            .carousel-item.icon {
+                margin-right: 30px;
+            }
+
+            .carousel-item img {
+                width: 36px;
+                height: 36px;
+            }
+
+            .about-container {
+                flex-direction: column-reverse;
+                padding: 2rem 1rem;
+                min-height: auto;
+            }
+
+            .about-content {
+                flex: 1;
+                padding-right: 0;
+                padding-bottom: 2rem;
+            }
+
+            .about-content h1 {
+                font-size: 2rem;
+            }
+
+            .about-image {
+                flex: 1;
+                height: 50vh;
+                margin-bottom: 2rem;
+            }
+
+            .about-image img {
+                height: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <div id="container">
-        @nsr_ramon → <a href="https://github.com/Ramon-OC">github</a> &amp; <a href="https://x.com/ramramocooc">twitter</a>
-    </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="logo">ramooon.com</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Ramon Ortiz Castañeda</h1>
+            <h4>Desarrollador iOS junior<br>con base en Ciudad de México</h4>
+        </div>
+    </section>
+
+    <!-- Tech Carousel Section -->
+    <section class="tech-carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <!-- Primera secuencia -->
+                <span class="carousel-item text">Swift</span>
+                <span class="carousel-item icon"><img src="src/icons/icon3.png" alt="Swift"></span>
+                <span class="carousel-item text">SwiftUI</span>
+                <span class="carousel-item icon"><img src="src/icons/icon7.png" alt="SwiftUI"></span>
+                <span class="carousel-item text">Xcode</span>
+                <span class="carousel-item icon"><img src="src/icons/icon2.png" alt="Xcode"></span>
+                <span class="carousel-item text">iOS SDK</span>
+                <span class="carousel-item icon"><img src="src/icons/icon4.png" alt="iOS SDK"></span>
+                <span class="carousel-item text">macOS</span>
+                <span class="carousel-item icon"><img src="src/icons/icon1.png" alt="macOS"></span>
+                <span class="carousel-item text">Firebase</span>
+                <span class="carousel-item icon"><img src="src/icons/icon6.png" alt="Firebase"></span>
+                <span class="carousel-item text">UIKit</span>
+                <span class="carousel-item icon"><img src="src/icons/icon7.png" alt="UIKit"></span>
+                <span class="carousel-item text">Git</span>
+                <span class="carousel-item icon"><img src="src/icons/icon8.png" alt="Git"></span>
+                <span class="carousel-item text">GitHub</span>
+                <span class="carousel-item icon"><img src="src/icons/icon6.png" alt="GitHub"></span>
+                <span class="carousel-item text">REST APIs</span>
+                <span class="carousel-item icon"><img src="src/icons/icon5.png" alt="REST APIs"></span>
+                <span class="carousel-item text">Python</span>
+                <span class="carousel-item icon"><img src="src/icons/icon10.png" alt="Python"></span>
+                <span class="carousel-item text">Java</span>
+                <span class="carousel-item icon"><img src="src/icons/icon2.png" alt="Java"></span>
+                
+                <!-- Duplicado para loop suave -->
+                <span class="carousel-item text">Swift</span>
+                <span class="carousel-item icon"><img src="src/icons/icon1.png" alt="Swift"></span>
+                <span class="carousel-item text">SwiftUI</span>
+                <span class="carousel-item icon"><img src="src/icons/icon2.png" alt="SwiftUI"></span>
+                <span class="carousel-item text">Xcode</span>
+                <span class="carousel-item icon"><img src="src/icons/icon3.png" alt="Xcode"></span>
+                <span class="carousel-item text">iOS SDK</span>
+                <span class="carousel-item icon"><img src="src/icons/icon4.png" alt="iOS SDK"></span>
+                <span class="carousel-item text">macOS</span>
+                <span class="carousel-item icon"><img src="src/icons/icon5.png" alt="macOS"></span>
+                <span class="carousel-item text">Firebase</span>
+                <span class="carousel-item icon"><img src="src/icons/icon6.png" alt="Firebase"></span>
+                <span class="carousel-item text">UIKit</span>
+                <span class="carousel-item icon"><img src="src/icons/icon7.png" alt="UIKit"></span>
+                <span class="carousel-item text">Git</span>
+                <span class="carousel-item icon"><img src="src/icons/icon8.png" alt="Git"></span>
+                <span class="carousel-item text">GitHub</span>
+                <span class="carousel-item icon"><img src="src/icons/icon9.png" alt="GitHub"></span>
+                <span class="carousel-item text">REST APIs</span>
+                <span class="carousel-item icon"><img src="src/icons/icon10.png" alt="REST APIs"></span>
+                <span class="carousel-item text">Python</span>
+                <span class="carousel-item icon"><img src="src/icons/icon1.png" alt="Python"></span>
+                <span class="carousel-item text">Java</span>
+                <span class="carousel-item icon"><img src="src/icons/icon2.png" alt="Java"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-container">
+               <div class="about-image">
+                <img src="yo.png" alt="Ramon Ortiz Castañeda" />
+            </div>
+            <div class="about-content">
+                <h1><strong>Un poco sobre mí…</strong></h1>
+                          <p style="font-family: sans-serif; font-size: 16px; color: #000;">
+  Nací en agosto de 2002, año de <em>Complicated</em> de Avril Lavigne y el apogeo 
+  <a href="https://es.wikipedia.org/wiki/Y2K_(estética)" style="color: black;" target="_blank">Y2K</a>. 
+  Crecí entre discos quemados y la estética 
+  <a href="https://es.wikipedia.org/wiki/Frutiger_Aero" style="color: black;" target="_blank">Frutiger Aero</a>, 
+  hasta que mi obsesión por el iPod Touch me llevó a estudiar una licenciatura en Ciencias de la Computación. 
+  En el camino cursé un diplomado de desarrollo móvil iOS y por el momento hago pequeñas apps en Swift para practicar.
+</p>
+                <div class="spotify-embed">
+                    <iframe 
+                        data-testid="embed-iframe" 
+                        style="border-radius:12px" 
+                        src="https://open.spotify.com/embed/track/5xEM5hIgJ1jjgcEBfpkt2F?utm_source=generator" 
+                        width="100%" 
+                        height="152" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact-section">
+        <div class="contact-container">
+            <h1>Contacto</h1>
+            <p>Dame trabajo, gracias.</p>
+            <p>Puedes contactarme a través de: contacto@ramooon.com</p>
+        </div>
+    </section>
 </body>
 </html>
