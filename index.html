@@ -22,17 +22,18 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid #e9ecef;
         }
 
         .logo {
-            color: white;
+            color: #111;
             font-size: 1.5rem;
             font-weight: 700;
             text-decoration: none;
@@ -43,18 +44,34 @@
             display: flex;
             gap: 2rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
-            color: white;
+            color: #666;
             text-decoration: none;
             font-weight: 400;
             font-family: 'Roboto', sans-serif;
-            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #ddd;
+            color: #333;
+            background-color: #e9ecef;
+        }
+
+        .baqueta-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .baqueta-icon:hover {
+            transform: scale(1.1);
         }
 
         /* Hero Section */
@@ -160,8 +177,8 @@
         /* About Section */
         .about-section {
             background-color: rgb(224, 224, 219);
-            padding: 4rem 0 0 0;
-            min-height: 100vh;
+            padding: 2rem 0 0 0;
+            min-height: 90vh;
             position: relative;
         }
 
@@ -169,16 +186,16 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            align-items: flex-end;
-            gap: 2rem;
+            align-items: flex-start;
+            gap: 4rem;
             padding: 0 2rem;
-            min-height: 100vh;
+            min-height: 90vh;
         }
 
         .about-content {
-            flex: 0 0 40%;
+            flex: 0 0 45%;
             padding-right: 2rem;
-            padding-bottom: 4rem;
+            padding-top: 3rem;
         }
 
         .about-content h1 {
@@ -202,22 +219,152 @@
         }
 
         .about-image {
-            flex: 0 0 60%;
+            flex: 0 0 55%;
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            height: 100vh;
+            height: 90vh;
         }
 
         .about-image img {
             max-width: 100%;
-            height: 80%;
+            height: 85%;
             object-fit: cover;
             border-radius: 8px 8px 0 0;
         }
 
         .spotify-embed {
-            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .cv-button:hover {
+            background-color: #555;
+            transform: translateY(-2px);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background-color: #f8f9fa;
+            padding: 4rem 0;
+            min-height: 100vh;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .projects-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+        }
+
+        .project {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .project-image {
+            flex: 0 0 40%;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .project-content {
+            flex: 1;
+        }
+
+        .project-content h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .project-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-btn:hover {
+            background-color: #555;
+            transform: translateY(-2px);
+        }
+
+        .project-btn.secondary {
+            background-color: transparent;
+            color: #333;
+            border: 2px solid #333;
+        }
+
+        .project-btn.secondary:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        .project-btn.disabled {
+            background-color: #ccc;
+            color: #888;
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
         /* Contact Section */
@@ -242,11 +389,43 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        .contact-section p {
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .contact-item a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .contact-item a:hover {
+            color: white;
+        }
+
+        .contact-description {
             color: #ccc;
             font-size: 1.2rem;
             line-height: 1.8;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             font-family: 'Roboto', sans-serif;
         }
 
@@ -300,6 +479,25 @@
                 height: 36px;
             }
 
+            .project {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .project-image {
+                flex: 1;
+            }
+
+            .project-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .project-links {
+                justify-content: center;
+            }
+
             .about-container {
                 flex-direction: column-reverse;
                 padding: 2rem 1rem;
@@ -309,7 +507,7 @@
             .about-content {
                 flex: 1;
                 padding-right: 0;
-                padding-bottom: 2rem;
+                padding-top: 2rem;
             }
 
             .about-content h1 {
@@ -325,6 +523,11 @@
             .about-image img {
                 height: 100%;
             }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
         }
     </style>
 </head>
@@ -334,9 +537,12 @@
         <a href="#" class="logo">ramooon.com</a>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#contacto">Contacto</a></li>
+            <li><a href="baqueta/index.html">
+                <img src="src/app-icon.png" alt="Baqueta App" class="baqueta-icon" />
+            </a></li>
         </ul>
     </nav>
 
@@ -409,21 +615,18 @@
     </section>
 
     <!-- About Section -->
-    <section class="about-section">
+    <section id="sobre-mi" class="about-section">
         <div class="about-container">
-               <div class="about-image">
-                <img src="yo.png" alt="Ramon Ortiz Castañeda" />
-            </div>
             <div class="about-content">
                 <h1><strong>Un poco sobre mí…</strong></h1>
-                          <p style="font-family: sans-serif; font-size: 16px; color: #000;">
-  Nací en agosto de 2002, año de <em>Complicated</em> de Avril Lavigne y el apogeo 
-  <a href="https://es.wikipedia.org/wiki/Y2K_(estética)" style="color: black;" target="_blank">Y2K</a>. 
-  Crecí entre discos quemados y la estética 
-  <a href="https://es.wikipedia.org/wiki/Frutiger_Aero" style="color: black;" target="_blank">Frutiger Aero</a>, 
-  hasta que mi obsesión por el iPod Touch me llevó a estudiar una licenciatura en Ciencias de la Computación. 
-  En el camino cursé un diplomado de desarrollo móvil iOS y por el momento hago pequeñas apps en Swift para practicar.
-</p>
+                <p style="font-family: sans-serif; font-size: 16px; color: #000;">
+                    Nací en agosto de 2002, año de <em>Complicated</em> de Avril Lavigne y el apogeo 
+                    <a href="https://es.wikipedia.org/wiki/Y2K_(estética)" style="color: black;" target="_blank">Y2K</a>. 
+                    Crecí entre discos quemados y la estética 
+                    <a href="https://es.wikipedia.org/wiki/Frutiger_Aero" style="color: black;" target="_blank">Frutiger Aero</a>, 
+                    hasta que mi obsesión por el iPod Touch me llevó a estudiar una licenciatura en Ciencias de la Computación. 
+                    En el camino cursé un diplomado de desarrollo móvil iOS y por el momento hago pequeñas apps en Swift para practicar.
+                </p>
                 <div class="spotify-embed">
                     <iframe 
                         data-testid="embed-iframe" 
@@ -437,6 +640,58 @@
                         loading="lazy">
                     </iframe>
                 </div>
+                <a href="#" class="cv-button">Ver mi CV</a>
+            </div>
+            <div class="about-image">
+                <img src="yo.png" alt="Ramon Ortiz Castañeda" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="projects-section">
+        <div class="projects-container">
+            <h1>Proyectos</h1>
+            
+            <div class="project">
+                <div class="project-image">
+                    <img src="src/hero-mockup.png" alt="Baqueta App" />
+                </div>
+                <div class="project-content">
+                    <h2>Baqueta</h2>
+                    <p>Una aplicación social para músicos que permite compartir obsesiones musicales del momento, calificar álbumes y ubicar las experiencias musicales en un mapa interactivo. Desarrollada completamente en SwiftUI con Firebase como backend.</p>
+                    <div class="project-links">
+                        <a href="baqueta/index.html" class="project-btn" target="_blank">Ver más</a>
+                        <a href="https://apps.apple.com/" class="project-btn secondary" target="_blank">App Store</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-image">
+                    <img src="src/melanoma.png" alt="Próximo Proyecto" />
+                </div>
+                <div class="project-content">
+                    <h2>Segmentación Automática de Lesiones de Melanoma en Imágenes Dermatoscópicas</h2>
+                    <p>Dada la relevancia clínica de la enfermedad en México, se propone el diseño e implementación de algoritmos para la segmentación automatizada de imágenes de melanoma, como herramienta base en el desarrollo de soluciones de telemedicina.</p>
+                    <div class="project-links">
+                        <a href="https://drive.google.com/file/d/1wG8qE-UgaHL5aTOTvjVxnPWzIcYmKn7k/view?usp=sharing" class="project-btn" target="_blank">Ver Póster</a>
+                        <a href="https://github.com/Ramon-OC/tesis-cs" class="project-btn secondary" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-image">
+                    <img src="src/insider.gif" alt="Insider" />
+                </div>
+                <div class="project-content">
+                    <h2><em>Insider</em></h2>
+                    <p>Basado en el juego de mesa <em>Insider</em> de <a href="https://oinkgames.com/en/games/analog/insider/" target="_blank" style="color: #333; text-decoration: underline;"><em>Oink Games</em></a>, estoy creando una versión entusiasta del juego para iOS que utiliza tarjetas NFC para manejar la lógica de roles.</p>
+                    <div class="project-links">
+                        <span class="project-btn disabled">Próximamente</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -445,8 +700,27 @@
     <section id="contacto" class="contact-section">
         <div class="contact-container">
             <h1>Contacto</h1>
-            <p>Dame trabajo, gracias.</p>
-            <p>Puedes contactarme a través de: contacto@ramooon.com</p>
+            <p class="contact-description">Puedes contactarme por los siguientes medios. Trataré de responder a la brevedad :)</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <a href="mailto:contacto@ramooon.com">contacto@ramooon.com</a>
+                </div>
+                <div class="contact-item">
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/Ramon-OC" target="_blank">@Ramon-OC</a>
+                </div>
+                <div class="contact-item">
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/ramon-oc/" target="_blank">ramon-oc</a>
+                </div>
+                 <div class="contact-item">
+                    <h3>Twitter</h3>
+                    <a href="https://x.com/nsr_ramon" target="_blank">@nsr_ramon</a>
+                </div>
+
+            </div>
         </div>
     </section>
 </body>
